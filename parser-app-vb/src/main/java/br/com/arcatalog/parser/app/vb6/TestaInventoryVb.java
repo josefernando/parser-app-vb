@@ -10,6 +10,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
+import br.arcatalog.parser.regex.ParserRegexVb6;
 import br.com.arcatalog.parser.vb6.Vb6Lexer;
 import br.com.arcatalog.parser.vb6.Vb6Parser;
 
@@ -38,8 +39,20 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 
 	    ParseTreeWalker walker = new ParseTreeWalker();
 	    walker.walk(parseInventory,tree);
+	    
+	    String s1 = parseInventory.toString();
+	    String s2 = parserRegex();
+	    
+	    System.out.println("----" + s1.equals(s2));
+//	    System.out.println("--" + parseInventory.toString().equals(parserRegex()));
    }
+   
 	
+ private static String parserRegex() {
+		ParserRegexVb6 parserRegexVb6 = new ParserRegexVb6("C:\\Users\\josez\\eclipse-workspace_2303_03\\parser-vb\\src\\test\\resources\\vb6Teste.frm");
+		return parserRegexVb6.getInventory();
+ }
+   
 //    private static void ParseVb6(File _file) throws IOException{
 //    	File f = _file;
 //    	String fileName = f.getAbsolutePath();

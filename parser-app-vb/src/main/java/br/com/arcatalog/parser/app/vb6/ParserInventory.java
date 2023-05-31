@@ -45,4 +45,8 @@ public class ParserInventory extends Vb6BaseListener {
 
 		 inventoryItem.addProperty(NAME, ctx.Name.getText());
 	}
+	
+	public String toString() {
+		return inventory.toString();
+	}
 }
